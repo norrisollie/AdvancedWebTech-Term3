@@ -31,8 +31,28 @@ var video_one = document.getElementById('video_one'),
 		}
 	}
 
-	video_one.addEventListener("timeupdate", function(){
-    if(this.currentTime > 10 && this.currentTime < 20) {
-        console.log("something")
-    }
-});
+	video_one.addEventListener("timeupdate", message_one);
+	video_two.addEventListener("timeupdate", message_two);
+
+	var message_one = document.getElementById("message_one"),
+		message_two = document.getElementById("message_two");
+
+
+	function message_one() {
+		// if time between 10s and 20s
+		if (this.currentTime > 5 && this.currentTime < 10) {
+    		message_one.classList.remove("message_hide");
+ 		}
+ 		else {
+    		message_one.classList.add("message_hide")
+ 		}
+	}
+
+	function message_two() {
+		if (this.currentTime > 0 && this.currentTime < 20) {
+			message_two.classList.remove("message_hide");
+		}
+		else {
+			message_two.classList.add("message_hide")
+		}
+	}
